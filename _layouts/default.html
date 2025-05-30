@@ -1,20 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title | escape }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  </head>
-  <body>
-    <header>
-      <h1>{{ site.title }}</h1>
-    </header>
-    <main>
-      {{ content }}
-    </main>
-    <footer>
-      <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
-    </footer>
-  </body>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>UniSVG</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>UniSVG: A Unified Dataset for Vector Graphic Understanding and Generation with Multimodal Large Language Models</h1>
+    <div class="authors">
+      <p>Jinke Li<sup>1,2</sup>, Jiarui Yu<sup>2</sup>, Chenxing Wei<sup>3,2</sup>, Hande Dong<sup>2</sup>, Qiang Lin<sup>2</sup>, Liangjing Yang<sup>1</sup>, Zhicai Wang<sup>4</sup>, Yanbin Hao<sup>5</sup></p>
+      <p class="affiliations">
+        <sup>1</sup>Zhejiang University, <sup>2</sup>Tencent, <sup>3</sup>Shenzhen University, <sup>4</sup>USTC, <sup>5</sup>Hefei University of Technology
+      </p>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <img src="assets/image/Abstract.png" alt="Description of image">
+      <p>Abstract</p>
+      <p>Unlike bitmap images, scalable vector graphics (SVG) maintain quality when scaled, frequently employed in computer vision and artistic design in the representation of SVG code. In this era of proliferating AI-powered systems, enabling AI to understand and generate SVG has become increasingly urgent. However, AI-driven SVG understanding and generation (U&amp;G) remain significant challenges. SVG code, equivalent to a set of curves and lines controlled by floating-point parameters, demands high precision in SVG U&amp;G. Besides, SVG generation operates under diverse conditional constraints, including textual prompts and visual references, which requires powerful multi-modal processing for condition-to-SVG transformation. Recently, the rapid growth of Multi-modal Large Language Models (MLLMs) have demonstrated capabilities to process multi-modal inputs and generate complex vector controlling parameters, suggesting the potential to address SVG U&amp;G tasks within a unified model. To unlock MLLM's capabilities in the SVG area, we propose an SVG-centric dataset called UniSVG, comprising 525k data items, tailored for MLLM training and evaluation. To our best knowledge, it is the first comprehensive dataset designed for unified SVG generation (from textual prompts and images) and SVG understanding (color, category, usage, etc.).
+      </p>
+    </div>
+  </main>
+  <footer>
+    <p>Footer content here</p>
+  </footer>
+</body>
 </html>

@@ -11,17 +11,43 @@ header {
   text-align: center;
 }
 
+header h1 {
+  margin-bottom: 10px; /* 调整标题和作者之间的间距 */
+}
+
+.authors {
+  font-size: 16px; /* 根据需要调整字体大小 */
+  color: #555; /* 根据需要调整字体颜色 */
+}
+
+.affiliations {
+  font-size: 14px; /* 根据需要调整字体大小 */
+  color: #777; /* 根据需要调整字体颜色 */
+}
+
 main {
   padding: 20px;
+}
+
+/* 新增容器样式 */
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+/* 调整图片的宽度 */
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+/* 调整字体大小 */
+.container p {
+  font-size: 14px; /* 根据需要调整字体大小 */
 }
 
 footer {
   background: #f8f8f8;
   padding: 20px;
   text-align: center;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }
