@@ -8,6 +8,22 @@
     .hf-logo {
       width: 40px;
       height: 40px;
+      vertical-align: middle;
+    }
+    .github-logo {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+    }
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .links-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -19,11 +35,16 @@
       <p class="affiliations">
         <sup>1</sup>Zhejiang University, <sup>2</sup>Tencent, <sup>3</sup>Shenzhen University, <sup>4</sup>USTC, <sup>5</sup>Hefei University of Technology
       </p>
-      <p>
-        <a href="https://huggingface.co/datasets/lili24/UniSVG" target="_blank">
-          <img src="{{ site.baseurl }}/assets/image/hf-logo.svg" alt="Hugging Face" class="hf-logo">
-        </a>
-      </p>
+      <div class="links-container">
+        <div class="links">
+          <a href="https://huggingface.co/datasets/lili24/UniSVG" target="_blank">
+            <img src="{{ site.baseurl }}/assets/image/hf-logo.svg" alt="Hugging Face" class="hf-logo">
+          </a>
+          <a href="https://github.com/Ryanlijinke/Ryanlijinke.github.io" target="_blank">
+            <img src="{{ site.baseurl }}/assets/image/github-mark.svg" alt="GitHub" class="github-logo">
+          </a>
+        </div>
+      </div>
     </div>
   </header>
   <main>
@@ -38,4 +59,4 @@
     <p>Footer content here</p>
   </footer>
 </body>
-</html>s
+</html>
