@@ -5,6 +5,16 @@
   <title>UniSVG</title>
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
   <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif; /* 设置整个页面的字体为Comic Sans MS */
+    }
+    .abstract-title {
+      font-size: 24px; /* 调整字体大小 */
+      font-weight: bold; /* 加粗 */
+      text-align: center; /* 居中 */
+      margin-top: 20px; /* 调整顶部间距 */
+      font-family: 'Comic Sans MS', cursive, sans-serif; /* 设置标题的字体为Comic Sans MS */
+    }
     .hf-logo {
       width: 40px;
       height: 40px;
@@ -24,6 +34,38 @@
       display: flex;
       justify-content: center;
       margin-top: 20px;
+    }
+    figure {
+      text-align: center;
+      margin: 20px 0;
+    }
+    figure img {
+      width: 80%; /* 图像占页面的80% */
+    }
+    figcaption {
+      font-size: 14px;
+      color: #555;
+      width: 80%; /* 使figcaption宽度与图像一致 */
+      margin: 0 auto; /* 居中对齐 */
+    }
+    .bibtex-container {
+      text-align: left; /* 左对齐 */
+      margin-top: 20px;
+      font-size: 14px; /* 调整字体大小 */
+      font-family: monospace; /* 使用等宽字体显示BibTeX */
+      background-color: #f0f0f0; /* 背景颜色稍微区别 */
+      padding: 10px; /* 内边距 */
+      border: 1px solid #ddd; /* 边框 */
+      border-radius: 8px; /* 圆角矩形 */
+      width: 60%; /* 宽度占页面的60% */
+      margin-left: auto; /* 自动左边距 */
+      margin-right: auto; /* 自动右边距 */
+      overflow-x: auto; /* 允许水平滚动 */
+    }
+    .bibtex-container pre {
+      font-size: 10px; /* 调整BibTeX内容的字体大小 */
+      white-space: pre-wrap; /* 保持换行 */
+      word-wrap: break-word; /* 允许长单词换行 */
     }
   </style>
 </head>
@@ -48,14 +90,39 @@
     </div>
   </header>
   <main>
-    <div class="container">
-      <img src="{{ site.baseurl }}/assets/image/Abstract.png" alt="Description of image">
-      <p>Abstract</p>
+    <div class="figure1container">
+      <figure>
+        <img src="{{ site.baseurl }}/assets/image/Abstract.png" alt="Overview of our proposed UniSVG dataset, task, and benchmark on MLLMs">
+        <figcaption>Figure 1. Overview of our proposed UniSVG dataset, task, and benchmark on MLLMs</figcaption>
+      </figure>
+    </div>
+
+    <div class="Othercontainer">
+
+      <div class="abstract-title">Abstract</div>
       <p>Unlike bitmap images, scalable vector graphics (SVG) maintain quality when scaled, frequently employed in computer vision and artistic design in the representation of SVG code. In this era of proliferating AI-powered systems, enabling AI to understand and generate SVG has become increasingly urgent. However, AI-driven SVG understanding and generation (U&amp;G) remain significant challenges. SVG code, equivalent to a set of curves and lines controlled by floating-point parameters, demands high precision in SVG U&amp;G. Besides, SVG generation operates under diverse conditional constraints, including textual prompts and visual references, which requires powerful multi-modal processing for condition-to-SVG transformation. Recently, the rapid growth of Multi-modal Large Language Models (MLLMs) have demonstrated capabilities to process multi-modal inputs and generate complex vector controlling parameters, suggesting the potential to address SVG U&amp;G tasks within a unified model. To unlock MLLM's capabilities in the SVG area, we propose an SVG-centric dataset called UniSVG, comprising 525k data items, tailored for MLLM training and evaluation. To our best knowledge, it is the first comprehensive dataset designed for unified SVG generation (from textual prompts and images) and SVG understanding (color, category, usage, etc.).
       </p>
     </div>
+    <div class="figure1container">
+      <figure>
+        <img src="{{ site.baseurl }}/assets/image/data.png" alt="The Pipeline of UniSVG Construction. (a) illustrates the general UniSVG data pre-processing. (b) explains the construction process of each sub-dataset and provides an overview of the UniSVG dataset.">
+        <figcaption>Figure 2. The Pipeline of UniSVG Construction. (a) illustrates the general UniSVG data pre-processing. (b) explains the construction process of each sub-dataset and provides an overview of the UniSVG dataset.</figcaption>
+      </figure>
+    </div>
+    
   </main>
   <footer>
+    <div class="bibtex-container">
+      <p>Welcome to CITE our work! Here is a BibTeX formatted citation:</p>
+      <pre>
+@inproceedings{li2025unisvg,
+  title={UniSVG: A Unified Dataset for Vector Graphic Understanding and Generation with Multimodal Large Language Models},
+  author={Li, Jinke and Yu, Jiarui and Wei, Chenxing and Dong, Hande and Lin, Qiang and Yang, Liangjing and Wang, Zhicai and Hao, Yanbin},
+  booktitle={Proceedings of ACM Multimedia 2025 Dataset Track},
+  year={2025}
+}
+      </pre>
+    </div>
     <p>Footer content here</p>
   </footer>
 </body>

@@ -30,11 +30,14 @@ main {
 }
 
 /* 新增容器样式 */
-.container {
+.figure1container {
+  width: 85%;
+  margin: 0 auto;
+}
+.Othercontainer {
   width: 60%;
   margin: 0 auto;
 }
-
 /* 调整图片的宽度 */
 .container img {
   width: 100%;
