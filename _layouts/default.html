@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
   <style>
     body {
-      font-family: 'Lucida Sans Unicode', "Lucida Grande", sans-serif; /* 设置整个页面的字体为Comic Sans MS */
+      font-family: 'Lucida Sans Unicode', "Lucida Grande", sans-serif; /* 设置整个页面的字体 */
     }
     .abstract-title {
       font-size: 24px; /* 调整字体大小 */
@@ -40,12 +40,12 @@
       margin: 20px 0;
     }
     figure img {
-      width: 80%; /* 图像占页面的80% */
+      width: 100%; /* 图像占页面的80% */
     }
     figcaption {
       font-size: 14px;
       color: #555;
-      width: 80%; /* 使figcaption宽度与图像一致 */
+      width: 100%; /* 使figcaption宽度与图像一致 */
       margin: 0 auto; /* 居中对齐 */
     }
     .bibtex-container {
@@ -66,6 +66,51 @@
       font-size: 10px; /* 调整BibTeX内容的字体大小 */
       white-space: pre-wrap; /* 保持换行 */
       word-wrap: break-word; /* 允许长单词换行 */
+    }
+    .figure-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .figure-container {
+      flex: 1;
+      margin: 10px;
+    }
+    .figure-container img {
+      width: 100%; /* 确保图像在容器内 */
+    }
+    .figure-small {
+      flex: 0 0 20%; /* 调整图像容器的宽度 */
+      margin-right: 20px; /* 右边距 */
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif; /* 使用Comic Sans MS字体 */
+      background-color: #f9f9f9; /* 表格背景颜色 */
+      border-radius: 8px; /* 圆角矩形 */
+      overflow: hidden; /* 隐藏溢出部分 */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+      font-size: 12px; /* 调整表格字体大小 */
+    }
+    th, td {
+      padding: 4px; /* 缩小单元格内边距 */
+      text-align: center;
+      border: 1px solid #ddd; /* 单元格边框颜色 */
+      white-space: nowrap; /* 防止换行 */
+    }
+    th {
+      background-color: #ffcccb; /* 表头背景颜色 */
+      color: #333; /* 表头文字颜色 */
+    }
+    td {
+      background-color: #fff; /* 表格内容背景颜色 */
+      color: #666; /* 表格内容文字颜色 */
+    }
+    .highlight {
+      background-color: #ffebcd; /* 浅黄色背景颜色 */
     }
   </style>
 </head>
@@ -108,8 +153,172 @@
         <img src="{{ site.baseurl }}/assets/image/data.png" alt="The Pipeline of UniSVG Construction. (a) illustrates the general UniSVG data pre-processing. (b) explains the construction process of each sub-dataset and provides an overview of the UniSVG dataset.">
         <figcaption>Figure 2. The Pipeline of UniSVG Construction. (a) illustrates the general UniSVG data pre-processing. (b) explains the construction process of each sub-dataset and provides an overview of the UniSVG dataset.</figcaption>
       </figure>
+      <div class="abstract-title">Data Distribution</div>
+      <p>Due to the significant differences in the data format and task complexity between SVG generation and understanding, we conducted a series of data ratio experiments to determine the optimal proportion of SVGEN and SVGUN. For these experiments, we selected a 160k subset from the UniSVG dataset and used different data ratios on LLaVA 1.5. As shown in Table \ref{table7}, we observed that a SVGEN:SVGUN ratio of 6:1 maximizes the quality of SVG generation while maintaining the accuracy of SVG understanding to the maximum extent. Our UniSVG dataset also follows this ratio to train models.
+      </p>
     </div>
     
+    <div class="figure-row">
+
+      <div class="figure-container figure-small">
+        <figure>
+          <img src="{{ site.baseurl }}/assets/image/Data Ratio.png" alt="">
+          <figcaption>Figure 3. Data Ratio between SVGEN and SVGUN</figcaption>
+        </figure>
+      </div>
+      <div class="figure-container table-small">
+        <table>
+          <thead>
+            <tr>
+              <th rowspan="4">Ratio SVGEN:SVGUN</th>
+              <th rowspan="4">Final Score</th>
+              <th colspan="8">SVGEN</th>
+              <th colspan="4">SVGUN</th>
+            </tr>
+            <tr>
+              <th colspan="4">ISVGEN</th>
+              <th colspan="4">TSVGEN</th>
+              <th colspan="2">Accuracy</th>
+              <th colspan="2">Bert</th>
+            </tr>
+            <tr>
+              <th colspan="2">Low-Level</th>
+              <th>High-Level</th>
+              <th rowspan="2">Score</th>
+              <th colspan="2">Low-Level</th>
+              <th>High-level</th>
+              <th rowspan="2">Score</th>
+              <th rowspan="2">Easy-Acc &uarr;</th>
+              <th rowspan="2">Hard-Acc &uarr;</th>
+              <th rowspan="2">Bert &uarr;</th>
+              <th rowspan="2">SBert &uarr;</th>
+            </tr>
+            <tr>
+              <th>SSIM &uarr;</th>
+              <th>LPIPS &darr;</th>
+              <th>CLIP Score &uarr;</th>
+              <th>SSIM &uarr;</th>
+              <th>LPIPS &darr;</th>
+              <th>CLIP Score &uarr;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 : 1</td>
+              <td>0.658</td>
+              <td>0.644</td>
+              <td>0.617</td>
+              <td>0.718</td>
+              <td>0.636</td>
+              <td>0.599</td>
+              <td>0.563</td>
+              <td>0.777</td>
+              <td>0.673</td>
+              <td>0.962</td>
+              <td class="highlight"><strong>0.586</strong></td>
+              <td class="highlight"><strong>0.552</strong></td>
+              <td class="highlight"><strong>0.801</strong></td>
+            </tr>
+            <tr>
+              <td>2 : 1</td>
+              <td>0.664</td>
+              <td>0.654</td>
+              <td>0.607</td>
+              <td>0.724</td>
+              <td>0.643</td>
+              <td>0.599</td>
+              <td>0.558</td>
+              <td>0.786</td>
+              <td>0.680</td>
+              <td class="highlight"><strong>0.982</strong></td>
+              <td>0.577</td>
+              <td>0.548</td>
+              <td>0.796</td>
+            </tr>
+            <tr>
+              <td>4 : 1</td>
+              <td>0.664</td>
+              <td>0.661</td>
+              <td>0.604</td>
+              <td>0.724</td>
+              <td>0.646</td>
+              <td class="highlight"><strong>0.603</strong></td>
+              <td>0.556</td>
+              <td>0.785</td>
+              <td>0.681</td>
+              <td>0.955</td>
+              <td>0.573</td>
+              <td>0.542</td>
+              <td>0.788</td>
+            </tr>
+            <tr>
+              <td>6 : 1</td>
+              <td class="highlight"><strong>0.666</strong></td>
+              <td>0.651</td>
+              <td>0.595</td>
+              <td>0.733</td>
+              <td>0.651</td>
+              <td>0.597</td>
+              <td>0.557</td>
+              <td class="highlight"><strong>0.793</strong></td>
+              <td class="highlight"><strong>0.684</strong></td>
+              <td>0.935</td>
+              <td>0.514</td>
+              <td>0.529</td>
+              <td>0.781</td>
+            </tr>
+            <tr>
+              <td>8 : 1</td>
+              <td>0.663</td>
+              <td>0.650</td>
+              <td>0.597</td>
+              <td>0.730</td>
+              <td>0.648</td>
+              <td>0.595</td>
+              <td class="highlight"><strong>0.554</strong></td>
+              <td>0.788</td>
+              <td>0.681</td>
+              <td>0.942</td>
+              <td>0.500</td>
+              <td>0.527</td>
+              <td>0.773</td>
+            </tr>
+            <tr>
+              <td>10 : 1</td>
+              <td>0.661</td>
+              <td class="highlight"><strong>0.659</strong></td>
+              <td class="highlight"><strong>0.588</strong></td>
+              <td class="highlight"><strong>0.729</strong></td>
+              <td class="highlight"><strong>0.651</strong></td>
+              <td>0.591</td>
+              <td>0.564</td>
+              <td>0.784</td>
+              <td>0.675</td>
+              <td>0.918</td>
+              <td>0.511</td>
+              <td>0.523</td>
+              <td>0.762</td>
+            </tr>
+            <tr>
+              <td>Infinity : 1</td>
+              <td>--</td>
+              <td>0.653</td>
+              <td>0.590</td>
+              <td><strong>0.729</strong></td>
+              <td>0.650</td>
+              <td>0.587</td>
+              <td>0.567</td>
+              <td>0.779</td>
+              <td>0.671</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </main>
   <footer>
     <div class="bibtex-container">
