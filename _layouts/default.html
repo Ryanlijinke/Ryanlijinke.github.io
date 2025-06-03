@@ -330,56 +330,57 @@
     <div class="figure1container">
       <div class="abstract-title">Data Scaling</div>
       <p>To better explore the potential of MLLMs in handling SVG-related tasks, we implemented data scaling. we expanded the dataset to a total of 2.2M entries including 2M SVGEN and 230K SVGUN entries besides the original UniSVG. To validate the impact of data scaling on task performance, we conducted fine-tuning experiments on the Qwen 2.5 VL model using the expanded dataset for 1 epoch. As shown in Table 2, all metrics, except for TSVGEN, have achieved a breakthrough increase. Due to API call limitations, the supplementary TSVGEN data only includes a single BLIP 2 <a href="#ref1">[1]</a> generated caption, which has reduced the learning effectiveness.</p>
-    </div>
-    <div class="figure-row">
-      <div class="figure-container table-small">
-        <div class="table-title">Table 2: Data Scaling Experiment Results</div>
-        <table>
-          <thead>
-            <tr>
-              <th rowspan="2">Model Name</th>
-              <th colspan="2">SVGEN</th>
-              <th colspan="4">SVGUN</th>
-            </tr>
-            <tr>
-              <th>ISVGEN</th>
-              <th>TSVGEN</th>
-              <th>Easy-Acc</th>
-              <th>Hard-Acc</th>
-              <th>Bert</th>
-              <th>Sbert</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Qwen 2.5 VL</td>
-              <td>0.633</td>
-              <td>0.642</td>
-              <td>0.543</td>
-              <td>0.571</td>
-              <td>0.082</td>
-              <td>0.596</td>
-            </tr>
-            <tr>
-              <td>Fintuned Qwen (<i>525k</i>)</td>
-              <td>0.773</td>
-              <td><strong>0.740</strong></td>
-              <td>0.983</td>
-              <td>0.604</td>
-              <td>0.574</td>
-              <td>0.827</td>
-            </tr>
-            <tr>
-              <td>Finetuned Qwen (<i>2.2M</i>)</td>
-              <td><strong>0.778</strong></td>
-              <td>0.724</td>
-              <td><strong>0.987</strong></td>
-              <td><strong>0.671</strong></td>
-              <td><strong>0.589</strong></td>
-              <td><strong>0.834</strong></td>
-            </tr>
-          </tbody>
-        </table>
+    
+      <div class="figure-row">
+        <div class="figure-container table-small">
+          <div class="table-title">Table 2: Data Scaling Experiment Results</div>
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2">Model Name</th>
+                <th colspan="2">SVGEN</th>
+                <th colspan="4">SVGUN</th>
+              </tr>
+              <tr>
+                <th>ISVGEN</th>
+                <th>TSVGEN</th>
+                <th>Easy-Acc</th>
+                <th>Hard-Acc</th>
+                <th>Bert</th>
+                <th>Sbert</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Qwen 2.5 VL</td>
+                <td>0.633</td>
+                <td>0.642</td>
+                <td>0.543</td>
+                <td>0.571</td>
+                <td>0.082</td>
+                <td>0.596</td>
+              </tr>
+              <tr>
+                <td>Fintuned Qwen (<i>525k</i>)</td>
+                <td>0.773</td>
+                <td><strong>0.740</strong></td>
+                <td>0.983</td>
+                <td>0.604</td>
+                <td>0.574</td>
+                <td>0.827</td>
+              </tr>
+              <tr>
+                <td>Finetuned Qwen (<i>2.2M</i>)</td>
+                <td><strong>0.778</strong></td>
+                <td>0.724</td>
+                <td><strong>0.987</strong></td>
+                <td><strong>0.671</strong></td>
+                <td><strong>0.589</strong></td>
+                <td><strong>0.834</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
     <section class="references">
