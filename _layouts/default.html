@@ -15,6 +15,13 @@
       margin-top: 20px; /* 调整顶部间距 */
       font-family: 'Comic Sans MS', cursive, sans-serif; /* 设置标题的字体为Comic Sans MS */
     }
+    .table-title {
+      font-size: 16px; /* 调整表格标题字体大小 */
+      font-weight: bold; /* 加粗 */
+      text-align: center; /* 居中 */
+      margin-top: 10px; /* 调整顶部间距 */
+      margin-bottom: 10px; /* 调整底部间距 */
+    }
     .hf-logo {
       width: 40px;
       height: 40px;
@@ -127,7 +134,7 @@
           <a href="https://huggingface.co/datasets/lili24/UniSVG" target="_blank">
             <img src="{{ site.baseurl }}/assets/image/hf-logo.svg" alt="Hugging Face" class="hf-logo">
           </a>
-          <a href="https://github.com/Ryanlijinke/Ryanlijinke.github.io" target="_blank">
+          <a href="https://github.com/Ryanlijinke/unisvg.github.io" target="_blank">
             <img src="{{ site.baseurl }}/assets/image/github-mark.svg" alt="GitHub" class="github-logo">
           </a>
         </div>
@@ -142,7 +149,7 @@
       </figure>
     </div>
 
-    <div class="Othercontainer">
+    <div class="figure1container">
 
       <div class="abstract-title">Abstract</div>
       <p>Unlike bitmap images, scalable vector graphics (SVG) maintain quality when scaled, frequently employed in computer vision and artistic design in the representation of SVG code. In this era of proliferating AI-powered systems, enabling AI to understand and generate SVG has become increasingly urgent. However, AI-driven SVG understanding and generation (U&amp;G) remain significant challenges. SVG code, equivalent to a set of curves and lines controlled by floating-point parameters, demands high precision in SVG U&amp;G. Besides, SVG generation operates under diverse conditional constraints, including textual prompts and visual references, which requires powerful multi-modal processing for condition-to-SVG transformation. Recently, the rapid growth of Multi-modal Large Language Models (MLLMs) have demonstrated capabilities to process multi-modal inputs and generate complex vector controlling parameters, suggesting the potential to address SVG U&amp;G tasks within a unified model. To unlock MLLM's capabilities in the SVG area, we propose an SVG-centric dataset called UniSVG, comprising 525k data items, tailored for MLLM training and evaluation. To our best knowledge, it is the first comprehensive dataset designed for unified SVG generation (from textual prompts and images) and SVG understanding (color, category, usage, etc.).
@@ -154,7 +161,7 @@
         <figcaption>Figure 2. The Pipeline of UniSVG Construction. (a) illustrates the general UniSVG data pre-processing. (b) explains the construction process of each sub-dataset and provides an overview of the UniSVG dataset.</figcaption>
       </figure>
       <div class="abstract-title">Data Distribution</div>
-      <p>Due to the significant differences in the data format and task complexity between SVG generation and understanding, we conducted a series of data ratio experiments to determine the optimal proportion of SVGEN and SVGUN. For these experiments, we selected a 160k subset from the UniSVG dataset and used different data ratios on LLaVA 1.5. As shown in Table \ref{table7}, we observed that a SVGEN:SVGUN ratio of 6:1 maximizes the quality of SVG generation while maintaining the accuracy of SVG understanding to the maximum extent. Our UniSVG dataset also follows this ratio to train models.
+      <p>Due to the significant differences in the data format and task complexity between SVG generation and understanding, we conducted a series of data ratio experiments to determine the optimal proportion of SVGEN and SVGUN. For these experiments, we selected a 160k subset from the UniSVG dataset and used different data ratios on LLaVA 1.5. As shown in Table 1, we observed that a SVGEN:SVGUN ratio of 6:1 maximizes the quality of SVG generation while maintaining the accuracy of SVG understanding to the maximum extent. Our UniSVG dataset also follows this ratio to train models.
       </p>
     </div>
     
@@ -167,6 +174,7 @@
         </figure>
       </div>
       <div class="figure-container table-small">
+        <div class="table-title">Table 1: Data Ratio Experiment Results</div>
         <table>
           <thead>
             <tr>
@@ -319,6 +327,68 @@
         </table>
       </div>
     </div>
+    <div class="figure1container">
+      <div class="abstract-title">Data Scaling</div>
+      <p>To better explore the potential of MLLMs in handling SVG-related tasks, we implemented data scaling. we expanded the dataset to a total of 2.2M entries including 2M SVGEN and 230K SVGUN entries besides the original UniSVG. To validate the impact of data scaling on task performance, we conducted fine-tuning experiments on the Qwen 2.5 VL model using the expanded dataset for 1 epoch. As shown in Table 2, all metrics, except for TSVGEN, have achieved a breakthrough increase. Due to API call limitations, the supplementary TSVGEN data only includes a single BLIP 2 <a href="#ref1">[1]</a> generated caption, which has reduced the learning effectiveness.</p>
+    </div>
+    <div class="figure-row">
+      <div class="figure-container table-small">
+        <div class="table-title">Table 2: Data Scaling Experiment Results</div>
+        <table>
+          <thead>
+            <tr>
+              <th rowspan="2">Model Name</th>
+              <th colspan="2">SVGEN</th>
+              <th colspan="4">SVGUN</th>
+            </tr>
+            <tr>
+              <th>ISVGEN</th>
+              <th>TSVGEN</th>
+              <th>Easy-Acc</th>
+              <th>Hard-Acc</th>
+              <th>Bert</th>
+              <th>Sbert</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Qwen 2.5 VL</td>
+              <td>0.633</td>
+              <td>0.642</td>
+              <td>0.543</td>
+              <td>0.571</td>
+              <td>0.082</td>
+              <td>0.596</td>
+            </tr>
+            <tr>
+              <td>Fintuned Qwen (<i>525k</i>)</td>
+              <td>0.773</td>
+              <td><strong>0.740</strong></td>
+              <td>0.983</td>
+              <td>0.604</td>
+              <td>0.574</td>
+              <td>0.827</td>
+            </tr>
+            <tr>
+              <td>Finetuned Qwen (<i>2.2M</i>)</td>
+              <td><strong>0.778</strong></td>
+              <td>0.724</td>
+              <td><strong>0.987</strong></td>
+              <td><strong>0.671</strong></td>
+              <td><strong>0.589</strong></td>
+              <td><strong>0.834</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <section class="references">
+        <h2>References</h2>
+        <ol>
+          <li id="ref1">Junnan Li, Dongxu Li, Silvio Savarese, Steven Hoi. <a href="https://arxiv.org/abs/2301.12597">BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models</a>. arXiv preprint arXiv:2301.12597, 2023.</li>
+          <!-- 添加更多引用 -->
+        </ol>
+    </section>
   </main>
   <footer>
     <div class="bibtex-container">

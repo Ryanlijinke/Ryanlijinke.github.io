@@ -74,8 +74,29 @@ footer {
   gap: 10px;
 }
 
+.references a {
+  color: #1a0dab; /* 根据需要调整链接颜色 */
+  text-decoration: none; /* 去掉下划线 */
+}
+
+.references a:hover {
+  text-decoration: underline; /* 鼠标悬停时显示下划线 */
+}
+
 .links-container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+.references {
+  margin-top: 40px; /* 调整引用部分与上方内容的间距 */
+}
+
+.references h2 {
+  font-size: 18px; /* 根据需要调整字体大小 */
+  color: #333; /* 根据需要调整字体颜色 */
+}
+
+.references ol {
+  padding-left: 20px; /* 调整列表项的缩进 */
 }
