@@ -346,7 +346,7 @@
     </div>
     <div class="figure1container">
       <div class="abstract-title">Data Scaling</div>
-      <p>To better explore the potential of MLLMs in handling SVG-related tasks, we implemented data scaling. we expanded the dataset to a total of 2.2M entries including 2M SVGEN and 230K SVGUN entries besides the original UniSVG. To validate the impact of data scaling on task performance, we conducted fine-tuning experiments on the Qwen 2.5 VL model using the expanded dataset for 1 epoch. As shown in Table 2, all metrics, except for TSVGEN, have achieved a breakthrough increase. Due to API call limitations, the supplementary TSVGEN data only includes a single BLIP 2 <a href="#ref1">[1]</a> generated caption, which has reduced the learning effectiveness.</p>
+      <p>To better explore the potential of MLLMs in handling SVG-related tasks, we implemented data scaling. we expanded the dataset to a total of 2.2M entries including 2M SVGEN and 230K SVGUN entries besides the original UniSVG. To validate the impact of data scaling on task performance, we conducted fine-tuning experiments on the Qwen 2.5 VL model using the expanded dataset for 2 epoch. As shown in Table 2, all metrics have achieved a breakthrough increase. Due to API call limitations, the supplementary TSVGEN data only includes a single BLIP-2 <a href="#ref1">[1]</a> generated caption, which has led to limited but noticeable improvements in performance. Furthermore, our experiments strongly demonstrate that the scaling law is applicable to SVG-centric tasks, and better performance can be achieved by increasing the amount of data. We will also release this scaled 2.2M dataset later.</p>
     
       <div class="figure-row">
         <div class="figure-container table-small">
@@ -355,6 +355,7 @@
             <thead>
               <tr>
                 <th rowspan="2">Model Name</th>
+                <th rowspan="2">Final Score</th>
                 <th colspan="2">SVGEN</th>
                 <th colspan="4">SVGUN</th>
               </tr>
@@ -370,6 +371,7 @@
             <tbody>
               <tr>
                 <td>Qwen 2.5 VL</td>
+                <td>0.614</td>
                 <td>0.633</td>
                 <td>0.642</td>
                 <td>0.543</td>
@@ -379,8 +381,9 @@
               </tr>
               <tr>
                 <td>Fintuned Qwen (<i>525k</i>)</td>
+                <td>0.752</td>
                 <td>0.773</td>
-                <td><strong>0.740</strong></td>
+                <td>0.740</td>
                 <td>0.983</td>
                 <td>0.604</td>
                 <td>0.574</td>
@@ -388,12 +391,13 @@
               </tr>
               <tr>
                 <td>Finetuned Qwen (<i>2.2M</i>)</td>
-                <td><strong>0.778</strong></td>
-                <td>0.724</td>
-                <td><strong>0.987</strong></td>
-                <td><strong>0.671</strong></td>
-                <td><strong>0.589</strong></td>
-                <td><strong>0.834</strong></td>
+                <td class="highlight"><strong>0.766</strong></td>
+                <td class="highlight"><strong>0.796</strong></td>
+                <td class="highlight"><strong>0.742</strong></td>
+                <td class="highlight"><strong>0.993</strong></td>
+                <td class="highlight"><strong>0.682</strong></td>
+                <td class="highlight"><strong>0.601</strong></td>
+                <td class="highlight"><strong>0.852</strong></td>
               </tr>
             </tbody>
           </table>
