@@ -404,6 +404,231 @@
         </div>
       </div>
     </div>
+    <section>
+      <div class="abstract-title">Leaderboard</div>
+
+      <style>
+        .leaderboard {
+          width: 100%;
+          margin: 20px auto;
+          border: none;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          font-family: Arial, sans-serif;
+          background-color: #f9f9f9;
+        }
+
+
+        .leaderboard-table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        .leaderboard-table th,
+        .leaderboard-table td {
+          padding: 10px;
+          text-align: center;
+          border: 1px solid #ddd;
+        }
+
+        /* 修改表头样式 */
+        .leaderboard-table th {
+          background-color: #ffcccb; /* 表头背景颜色 */
+          color: #333; /* 表头文字颜色 */
+          font-weight: bold;
+        }
+
+        .first-place {
+          background-color: #ffebcd; /* 浅黄色背景颜色 */
+          font-weight: bold;
+        }
+
+        .second-place {
+          background-color: #e0ffff; /* 浅蓝色背景颜色 */
+          font-weight: bold;
+        }
+        .first-place-content {
+          display: flex; /* 使用 flex 布局 */
+          align-items: center; /* 垂直居中 */
+          justify-content: center; /* 整体居中对齐 */
+        }
+
+        .crown-icon {
+          width: 20px; /* 图标宽度 */
+          height: 20px; /* 图标高度 */
+          margin-right: 5px; /* 图标与文字之间的间距 */
+          vertical-align: middle; /* 图标与文字垂直居中 */
+          justify-self: left;
+        }
+      </style>
+
+      <div class="leaderboard">
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th rowspan="2">Model Name</th>
+              <th rowspan="2">Final Score</th>
+              <th colspan="2">SVGEN</th>
+              <th colspan="4">SVGUN</th>
+            </tr>
+            <tr>
+              <th>ISVGEN Score</th>
+              <th>TSVGEN Score</th>
+              <th>Easy Accuracy</th>
+              <th>Hard Accuracy</th>
+              <th>Bert</th>
+              <th>SBert</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            <td>
+              <div class="first-place-content">  
+                <img src="assets/image/crown-svgrepo-com.svg" alt="Crown" class="crown-icon">
+                Scaled Finetuned Qwen 2.5 VL
+              </div>
+            </td> 
+              <td>0.766</td>
+              <td>0.796</td>
+              <td>0.742</td>
+              <td>0.993</td>
+              <td>0.682</td>
+              <td>0.601</td>
+              <td>0.852</td>
+            </tr>
+            <tr>
+              <td>Finetuned Qwen 2.5 VL</td>
+              <td>0.752</td>
+              <td>0.773</td>
+              <td>0.740</td>
+              <td>0.983</td>
+              <td>0.604</td>
+              <td>0.574</td>
+              <td>0.827</td>
+            </tr>
+            <tr>
+              <td>Finetuned LLaMA 3.2</td>
+              <td>0.732</td>
+              <td>0.775</td>
+              <td>0.709</td>
+              <td>0.990</td>
+              <td>0.560</td>
+              <td>0.511</td>
+              <td>0.735</td>
+            </tr>
+            <tr>
+              <td>Finetuned LLaVA-LLaMA</td>
+              <td>0.731</td>
+              <td>0.764</td>
+              <td>0.717</td>
+              <td>0.940</td>
+              <td>0.556</td>
+              <td>0.524</td>
+              <td>0.759</td>
+            </tr>
+            <tr>
+              <td>Claude 3.7</td>
+              <td>0.722</td>
+              <td>0.743</td>
+              <td>0.735</td>
+              <td>0.863</td>
+              <td>0.624</td>
+              <td>0.322</td>
+              <td>0.709</td>
+            </tr>
+            <tr>
+              <td>Finetuned LLaVA 1.5</td>
+              <td>0.689</td>
+              <td>0.716</td>
+              <td>0.680</td>
+              <td>0.883</td>
+              <td>0.521</td>
+              <td>0.473</td>
+              <td>0.728</td>
+            </tr>
+            <tr>
+              <td>GPT 4V</td>
+              <td>0.650</td>
+              <td>0.638</td>
+              <td>0.712</td>
+              <td>0.893</td>
+              <td>0.448</td>
+              <td>0.211</td>
+              <td>0.520</td>
+            </tr>
+            <tr>
+              <td>Gemini 1.5 pro</td>
+              <td>0.647</td>
+              <td>0.644</td>
+              <td>0.681</td>
+              <td>0.923</td>
+              <td>0.523</td>
+              <td>0.254</td>
+              <td>0.637</td>
+            </tr>
+            <tr>
+              <td>Qwen 2.5 VL</td>
+              <td>0.614</td>
+              <td>0.633</td>
+              <td>0.642</td>
+              <td>0.543</td>
+              <td>0.571</td>
+              <td>0.082</td>
+              <td>0.596</td>
+            </tr>
+            <tr>
+              <td>LLaVA 1.5 13B</td>
+              <td>0.569</td>
+              <td>0.599</td>
+              <td>0.624</td>
+              <td>0.321</td>
+              <td>0.224</td>
+              <td>-0.154</td>
+              <td>0.473</td>
+            </tr>
+            <tr>
+              <td>LLaMA 3.2</td>
+              <td>0.567</td>
+              <td>0.592</td>
+              <td>0.638</td>
+              <td>0.347</td>
+              <td>0.201</td>
+              <td>-0.291</td>
+              <td>0.455</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <script>
+        // 获取页面中的所有表格
+        const tables = document.querySelectorAll("table");
+
+        tables.forEach(table => {
+          const rows = Array.from(table.querySelectorAll("tbody tr"));
+          const columnCount = rows[0]?.children.length || 0;
+
+          // 遍历每列（从第2列开始，跳过第一列）
+          for (let colIndex = 1; colIndex < columnCount; colIndex++) {
+            const values = rows.map(row => parseFloat(row.children[colIndex].textContent) || -Infinity);
+            const maxValue = Math.max(...values);
+            const secondMaxValue = Math.max(...values.filter(value => value < maxValue));
+
+            rows.forEach(row => {
+              const cell = row.children[colIndex];
+              const cellValue = parseFloat(cell.textContent);
+              if (cellValue === maxValue) {
+                cell.style.backgroundColor = "#ffebcd"; // 浅黄色背景颜色
+                cell.style.fontWeight = "bold";
+              } else if (cellValue === secondMaxValue) {
+                cell.style.backgroundColor = "#e0ffff"; // 浅蓝色背景颜色
+                cell.style.fontWeight = "bold";
+              }
+            });
+          }
+        });
+      </script>
+    </section>
     <div class="figure1container">
       <div class="abstract-title">More Information Coming ...</div>
     </div>
