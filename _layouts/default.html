@@ -127,8 +127,11 @@
       background-color: #fff; /* 表格内容背景颜色 */
       color: #666; /* 表格内容文字颜色 */
     }
-    .highlight {
+    .first-place {
       background-color: #ffebcd; /* 浅黄色背景颜色 */
+    }
+    .second-place {
+      background-color: #e0ffff;
     }
   </style>
 </head>
@@ -239,10 +242,10 @@
               <td>0.563</td>
               <td>0.777</td>
               <td>0.673</td>
-              <td>0.962</td>
-              <td class="highlight"><strong>0.586</strong></td>
-              <td class="highlight"><strong>0.552</strong></td>
-              <td class="highlight"><strong>0.801</strong></td>
+              <td class="second-place">0.962</td>
+              <td class="first-place"><strong>0.586</strong></td>
+              <td class="first-place"><strong>0.552</strong></td>
+              <td class="first-place"><strong>0.801</strong></td>
             </tr>
             <tr>
               <td>2 : 1</td>
@@ -255,22 +258,22 @@
               <td>0.558</td>
               <td>0.786</td>
               <td>0.680</td>
-              <td class="highlight"><strong>0.982</strong></td>
-              <td>0.577</td>
-              <td>0.548</td>
-              <td>0.796</td>
+              <td class="first-place"><strong>0.982</strong></td>
+              <td class="second-place">0.577</td>
+              <td class="second-place">0.548</td>
+              <td class="second-place">0.796</td>
             </tr>
             <tr>
               <td>4 : 1</td>
-              <td>0.664</td>
-              <td>0.661</td>
+              <td class="second-place"><strong>0.661</strong></td>
+              <td class="first-place">0.661</td>
               <td>0.604</td>
               <td>0.724</td>
               <td>0.646</td>
-              <td class="highlight"><strong>0.603</strong></td>
-              <td>0.556</td>
+              <td class="first-place"><strong>0.603</strong></td>
+              <td class="second-place">0.556</td>
               <td>0.785</td>
-              <td>0.681</td>
+              <td class="second-place">0.681</td>
               <td>0.955</td>
               <td>0.573</td>
               <td>0.542</td>
@@ -278,15 +281,15 @@
             </tr>
             <tr>
               <td>6 : 1</td>
-              <td class="highlight"><strong>0.666</strong></td>
+              <td class="first-place"><strong>0.666</strong></td>
               <td>0.651</td>
               <td>0.595</td>
-              <td>0.733</td>
-              <td>0.651</td>
-              <td>0.597</td>
+              <td class="first-place"><strong>0.733</strong></td>
+              <td class="first-place"><strong>0.651</strong></td>
+              <td class="second-place">0.597</td>
               <td>0.557</td>
-              <td class="highlight"><strong>0.793</strong></td>
-              <td class="highlight"><strong>0.684</strong></td>
+              <td class="first-place"><strong>0.793</strong></td>
+              <td class="first-place"><strong>0.684</strong></td>
               <td>0.935</td>
               <td>0.514</td>
               <td>0.529</td>
@@ -297,11 +300,11 @@
               <td>0.663</td>
               <td>0.650</td>
               <td>0.597</td>
-              <td>0.730</td>
+              <td class="second-place">0.730</td>
               <td>0.648</td>
               <td>0.595</td>
-              <td class="highlight"><strong>0.554</strong></td>
-              <td>0.788</td>
+              <td class="first-place"><strong>0.554</strong></td>
+              <td class="second-place">0.788</td>
               <td>0.681</td>
               <td>0.942</td>
               <td>0.500</td>
@@ -311,10 +314,10 @@
             <tr>
               <td>10 : 1</td>
               <td>0.661</td>
-              <td class="highlight"><strong>0.659</strong></td>
-              <td class="highlight"><strong>0.588</strong></td>
-              <td class="highlight"><strong>0.729</strong></td>
-              <td class="highlight"><strong>0.651</strong></td>
+              <td class="second-place">0.659</td>
+              <td class="first-place"><strong>0.588</strong></td>
+              <td>0.729</td>
+              <td class="second-place">0.651</td>
               <td>0.591</td>
               <td>0.564</td>
               <td>0.784</td>
@@ -328,8 +331,8 @@
               <td>Infinity : 1</td>
               <td>--</td>
               <td>0.653</td>
-              <td>0.590</td>
-              <td><strong>0.729</strong></td>
+              <td class="second-place">0.590</td>
+              <td>0.729</td>
               <td>0.650</td>
               <td>0.587</td>
               <td>0.567</td>
@@ -381,23 +384,23 @@
               </tr>
               <tr>
                 <td>Fintuned Qwen (<i>525k</i>)</td>
-                <td>0.752</td>
-                <td>0.773</td>
-                <td>0.740</td>
-                <td>0.983</td>
-                <td>0.604</td>
-                <td>0.574</td>
-                <td>0.827</td>
+                <td class="second-place">0.752</td>
+                <td class="second-place">0.773</td>
+                <td class="second-place">0.740</td>
+                <td class="second-place">0.983</td>
+                <td class="second-place">0.604</td>
+                <td class="second-place">0.574</td>
+                <td class="second-place">0.827</td>
               </tr>
               <tr>
                 <td>Finetuned Qwen (<i>2.2M</i>)</td>
-                <td class="highlight"><strong>0.766</strong></td>
-                <td class="highlight"><strong>0.796</strong></td>
-                <td class="highlight"><strong>0.742</strong></td>
-                <td class="highlight"><strong>0.993</strong></td>
-                <td class="highlight"><strong>0.682</strong></td>
-                <td class="highlight"><strong>0.601</strong></td>
-                <td class="highlight"><strong>0.852</strong></td>
+                <td class="first-place"><strong>0.766</strong></td>
+                <td class="first-place"><strong>0.796</strong></td>
+                <td class="first-place"><strong>0.742</strong></td>
+                <td class="first-place"><strong>0.993</strong></td>
+                <td class="first-place"><strong>0.682</strong></td>
+                <td class="first-place"><strong>0.601</strong></td>
+                <td class="first-place"><strong>0.852</strong></td>
               </tr>
             </tbody>
           </table>
@@ -409,7 +412,7 @@
 
       <style>
         .leaderboard {
-          width: 100%;
+          width: 84%;
           margin: 20px auto;
           border: none;
           border-radius: 8px;
@@ -438,15 +441,6 @@
           font-weight: bold;
         }
 
-        .first-place {
-          background-color: #ffebcd; /* 浅黄色背景颜色 */
-          font-weight: bold;
-        }
-
-        .second-place {
-          background-color: #e0ffff; /* 浅蓝色背景颜色 */
-          font-weight: bold;
-        }
         .first-place-content {
           display: flex; /* 使用 flex 布局 */
           align-items: center; /* 垂直居中 */
@@ -488,30 +482,30 @@
                 Scaled Finetuned Qwen 2.5 VL
               </div>
             </td> 
-              <td>0.766</td>
-              <td>0.796</td>
-              <td>0.742</td>
-              <td>0.993</td>
-              <td>0.682</td>
-              <td>0.601</td>
-              <td>0.852</td>
+              <td class="first-place"><strong>0.766</strong></td>
+              <td class="first-place"><strong>0.796</strong></td>
+              <td class="first-place"><strong>0.742</strong></td>
+              <td class="first-place"><strong>0.993</strong></td>
+              <td class="first-place"><strong>0.682</strong></td>
+              <td class="first-place"><strong>0.601</strong></td>
+              <td class="first-place"><strong>0.852</strong></td>
             </tr>
             <tr>
               <td>Finetuned Qwen 2.5 VL</td>
-              <td>0.752</td>
+              <td class="second-place">0.752</td>
               <td>0.773</td>
-              <td>0.740</td>
+              <td class="second-place">0.740</td>
               <td>0.983</td>
               <td>0.604</td>
-              <td>0.574</td>
-              <td>0.827</td>
+              <td class="second-place">0.574</td>
+              <td class="second-place">0.827</td>
             </tr>
             <tr>
               <td>Finetuned LLaMA 3.2</td>
               <td>0.732</td>
-              <td>0.775</td>
+              <td class="second-place">0.775</td>
               <td>0.709</td>
-              <td>0.990</td>
+              <td class="second-place">0.990</td>
               <td>0.560</td>
               <td>0.511</td>
               <td>0.735</td>
@@ -532,7 +526,7 @@
               <td>0.743</td>
               <td>0.735</td>
               <td>0.863</td>
-              <td>0.624</td>
+              <td class="second-place">0.624</td>
               <td>0.322</td>
               <td>0.709</td>
             </tr>
@@ -600,34 +594,6 @@
         </table>
       </div>
 
-      <script>
-        // 获取页面中的所有表格
-        const tables = document.querySelectorAll("table");
-
-        tables.forEach(table => {
-          const rows = Array.from(table.querySelectorAll("tbody tr"));
-          const columnCount = rows[0]?.children.length || 0;
-
-          // 遍历每列（从第2列开始，跳过第一列）
-          for (let colIndex = 1; colIndex < columnCount; colIndex++) {
-            const values = rows.map(row => parseFloat(row.children[colIndex].textContent) || -Infinity);
-            const maxValue = Math.max(...values);
-            const secondMaxValue = Math.max(...values.filter(value => value < maxValue));
-
-            rows.forEach(row => {
-              const cell = row.children[colIndex];
-              const cellValue = parseFloat(cell.textContent);
-              if (cellValue === maxValue) {
-                cell.style.backgroundColor = "#ffebcd"; // 浅黄色背景颜色
-                cell.style.fontWeight = "bold";
-              } else if (cellValue === secondMaxValue) {
-                cell.style.backgroundColor = "#e0ffff"; // 浅蓝色背景颜色
-                cell.style.fontWeight = "bold";
-              }
-            });
-          }
-        });
-      </script>
     </section>
     <div class="figure1container">
       <div class="abstract-title">More Information Coming ...</div>
