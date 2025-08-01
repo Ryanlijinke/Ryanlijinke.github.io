@@ -133,11 +133,31 @@
     .second-place {
       background-color: #e0ffff;
     }
+    .acmmm-badge {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      margin: 15px auto;
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #ffcc70, #ff7eb3);
+      color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(255, 126, 179, 0.6);
+      animation: glow 1.5s infinite alternate;
+      display: inline-block;
+    }
+    @keyframes glow {
+      from { box-shadow: 0 0 8px rgba(255, 126, 179, 0.6); }
+      to { box-shadow: 0 0 20px rgba(255, 126, 179, 1); }
+    }
   </style>
 </head>
 <body>
   <header>
   <h1>UniSVG: A Unified Dataset for Vector Graphic Understanding and Generation with Multimodal Large Language Models</h1>
+  <div class="acmmm-badge">
+  🏆 <span>ACM MM 2025 Dataset Track Accepted!</span> 🏆
+  </div>
   <div class="authors">
     <p>Jinke Li<sup>1,2</sup>, Jiarui Yu<sup>2</sup>, Chenxing Wei<sup>3,2</sup>, Hande Dong<sup>2</sup>, Qiang Lin<sup>2</sup>, Liangjing Yang<sup>1</sup>, Zhicai Wang<sup>4</sup>, Yanbin Hao<sup>5</sup></p>
     <p class="affiliations">
