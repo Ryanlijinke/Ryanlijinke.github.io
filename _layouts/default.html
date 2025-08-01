@@ -8,6 +8,17 @@
     body {
       font-family: 'Lucida Sans Unicode', "Lucida Grande", sans-serif; /* 设置整个页面的字体 */
     }
+    .main-title {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-size: 30px; /* 标题大一些 */
+      font-weight: bold;
+      text-align: center;
+      background: linear-gradient(90deg, #ff7eb3, #ffcc70);
+      -webkit-background-clip: text;
+      color: transparent; /* 渐变文字效果 */
+      padding: 15px 0;
+      margin-top: 10px;
+    }
     .abstract-title {
       font-size: 24px; /* 调整字体大小 */
       font-weight: bold; /* 加粗 */
@@ -154,7 +165,9 @@
 </head>
 <body>
   <header>
-  <h1>UniSVG: A Unified Dataset for Vector Graphic Understanding and Generation with Multimodal Large Language Models</h1>
+  <h1 class="main-title">
+    UniSVG: A Unified Dataset for Vector Graphic Understanding and Generation with Multimodal Large Language Models
+  </h1>
   <div class="acmmm-badge">
   🏆 <span>ACM MM 2025 Dataset Track Accepted!</span> 🏆
   </div>
